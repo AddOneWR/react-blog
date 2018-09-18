@@ -1,0 +1,40 @@
+.footer {
+  &-container {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  &-friend {
+
+    &_link {
+      color: #333;
+      text-decoration: none;
+      
+      &:hover {
+        color: #999;
+      }
+    }
+
+    span {
+      margin-right: 5px;
+    }
+  }
+
+  &-emoji {
+    margin: 0 2px;
+    user-select: none;
+  }
+
+  &-tips {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  &-copyright {
+    font-size: 12px;
+    user-select: none;
+    margin-top: 5px;
+  }
+}
