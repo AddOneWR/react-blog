@@ -22,7 +22,10 @@ class List extends Component {
       highlight: code => hljs.highlightAuto(code).value,
     });
     let category = j2url.getParam(window.location.href, 'category')
-    mdList[category].list.sort((a, b) => a.time < b.time);
+    mdList[category].list.sort(
+      (b, a) => Date.parse(a.time) - Date.parse(b.time)
+    );
+    console.log(mdList[category].list)
     this.setState({
       mdList: mdList[category],
       category: category
