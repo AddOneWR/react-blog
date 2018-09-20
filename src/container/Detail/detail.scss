@@ -1,6 +1,10 @@
 @import './highlight.scss';
 @import './markdown.scss';
 
+.main-container {
+  height: 100%;
+}
+
 .detail {
 
   &-container {

@@ -1,11 +1,64 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Motion, spring } from 'react-motion';
+import markdown from '../../constant/markdown';
 
 import './banner.scss';
+import { Object } from 'core-js';
 
 class Banner extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      curMonthList: ''
+    }
+  }
+  
+  componentDidMount() {
+    this.getRecentMd();
+  }
+
+  getRecentMd = () => {
+    let curMonthList = [];
+    let now = new Date();
+    let lastMonth = new Date(now.getTime() - 7 * 24 * 3600 * 1000);
+    let lastMonthStamp = Date.parse(lastMonth);
+    Object.keys(markdown).forEach(key => {
+      markdown[key].list.forEach(item => {
+        if(lastMonthStamp < Date.parse(item.time)){
+          curMonthList.push({
+            key: key,
+            value: item
+          })
+        }
+      })
+    })
+    console.log(curMonthList)
+    this.setState({
+      curMonthList: curMonthList
+    })
+  }
+
+  renderRecList = (list) => (
+    <div className="rec-container">
+    {
+      list ?
+      list.map((item, index) => (
+        <a 
+          key={index}
+          href={`/detail?category=${item.key}&name=${item.value.title}`}
+        >
+          {item.value.title}
+        </a>
+      )) :
+      '懒惰的博主已经一个多星期没更新了，快去催他'
+    }
+    </div>
+  )
+
   render() {
+    const { curMonthList } = this.state;
     return (
       <div className="banner-container">
         <Motion defaultStyle={{x: 5000}} style={{x: spring(0)}}>
@@ -39,6 +92,7 @@ class Banner extends Component {
                 )
               }
               </Motion>
+              { this.renderRecList(curMonthList) }
             </div>
           )}
         </Motion>

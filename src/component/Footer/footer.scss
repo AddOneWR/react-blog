@@ -1,7 +1,8 @@
-.footer {
+.footer {  
   &-container {
+    font-family: Menlo, Monaco, 'Courier New', monospace;
     font-size: 14px;
-    color: #333;
+    color: #666;
     text-align: center;
     padding: 10px 0;
   }
@@ -9,11 +10,11 @@
   &-friend {
 
     &_link {
-      color: #333;
+      color: #666;
       text-decoration: none;
       
       &:hover {
-        color: #999;
+        color: #000;
       }
     }
 

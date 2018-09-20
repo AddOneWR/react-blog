@@ -22,7 +22,7 @@ class Footer extends Component {
             ))
           }
         </div>
-        <div className="footer-tips">If you find that the style is confusing when you browse, or if you don't understand this sentence, then you may not be suitable for watching my blog.</div>
+        <div className="footer-tips">No purpose, No watching</div>
         <div className="footer-tips">
           <span role="img" aria-label="heart" className="footer-emoji">💖</span>
           微信 eDQ2NzA3MjI4MA==

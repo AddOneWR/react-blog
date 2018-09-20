@@ -6,6 +6,30 @@
     color: #fff;
     background-color: #000;
     overflow: hidden;
+
+    .rec-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #666;
+
+      a {
+        position: relative;
+        color: #666;
+
+        &::after {
+          content: "new";
+          position: absolute;
+          top: -6px;
+          color: red;
+        }
+
+        &:hover {
+          color: #000;
+        }
+      }
+    }
   }
 
   &-flex {

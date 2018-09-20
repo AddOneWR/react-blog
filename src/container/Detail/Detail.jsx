@@ -25,11 +25,13 @@ class Detail extends Component {
     let category = j2url.getParam(href, 'category');
     let name = j2url.getParam(href, 'name');
     let markdown = require(`../../markdown/${category}/${name}.md`);
-    this.getToc(markdown)
-    this.setState({
-      markdown: markdown,
-      name: name
-    })
+    setTimeout(() => {
+      this.getToc(markdown)
+      this.setState({
+        markdown: markdown,
+        name: name
+      })
+    }, 800)
   }
 
   getToc = (markdown) => {
@@ -74,7 +76,7 @@ class Detail extends Component {
   render() {
     const { markdown, name, toc } = this.state;
     return(
-      <div>
+      <div className="main-container">
         {
           !markdown ? 
           <Loading /> :
@@ -98,7 +100,7 @@ class Detail extends Component {
             <div dangerouslySetInnerHTML={{ __html: marked(markdown) }}></div>
           </div>
         }
-        <Footer />
+        { markdown ? <Footer /> : ''}
       </div>
     )
   }

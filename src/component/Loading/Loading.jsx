@@ -5,7 +5,9 @@ import './loading.scss';
 class Loading extends Component {
   render() {
     return (
-      <div className="loading"></div>
+      <div className="loading-container">
+        <div className="loading-container_main"></div>
+      </div>
     )
   }
 }
