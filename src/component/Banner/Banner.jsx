@@ -17,6 +17,7 @@ class Banner extends Component {
   
   componentDidMount() {
     this.getRecentMd();
+    console.log('%c你好，我是AddoneG，欢迎来到我的博客', 'font-size: 50px; background: #222831; color: #fff;padding: 20px 30px');
   }
 
   getRecentMd = () => {
@@ -34,7 +35,6 @@ class Banner extends Component {
         }
       })
     })
-    console.log(curMonthList)
     this.setState({
       curMonthList: curMonthList
     })
