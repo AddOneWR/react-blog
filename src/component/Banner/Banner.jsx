@@ -17,13 +17,13 @@ class Banner extends Component {
   
   componentDidMount() {
     this.getRecentMd();
-    console.log('%c你好，我是AddoneG，欢迎来到我的博客', 'font-size: 50px; background: #222831; color: #fff;padding: 20px 30px');
+    console.log('%cShow Your Code', 'font-size: 50px; background: #222831; color: #fff;padding: 20px 30px');
   }
 
   getRecentMd = () => {
     let curMonthList = [];
     let now = new Date();
-    let lastMonth = new Date(now.getTime() - 7 * 24 * 3600 * 1000);
+    let lastMonth = new Date(now.getTime() - 7 * 24 * 3600 * 1000 * 4);
     let lastMonthStamp = Date.parse(lastMonth);
     Object.keys(markdown).forEach(key => {
       markdown[key].list.forEach(item => {
