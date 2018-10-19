@@ -22,6 +22,119 @@
         position: absolute;
       }
     }
+
+    .nav-input-wrapper {
+      position: absolute;
+      width: 20px;
+      height: 35px;
+      margin-left: 170px;
+      top: 6px;
+      right: 120px;
+
+      @media screen and (max-width: 768px) {
+        & {
+          display: none;
+        }
+      }
+    }
+    
+    .open {
+      top: 18px;
+    }
+
+    input {
+      box-sizing: border-box;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #FFFFFF;
+      border-radius: 50%;
+      background: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: Roboto;
+      outline: 0;
+      transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out, padding 0.2s;
+      transition-delay: 0.4s;
+      transform: translate(-100%, -50%);
+    }
+    
+    .search {
+      background: none;
+      position: absolute;
+      top: 0;
+      left: 4px;
+      width: 30px;
+      height: 50px;
+      padding: 0;
+      border-radius: 100%;
+      outline: 0;
+      border: 0;
+      color: inherit;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      transform: translate(-100%, -50%);
+    }
+    
+    .search:before {
+      content: "";
+      position: absolute;
+      right: -6px;
+      width: 16px;
+      height: 3px;
+      background-color: #fff;
+      transform: rotate(45deg);
+      margin-top: 30px;
+      transition: 0.2s ease-in-out;
+    }
+    
+    .close {
+      transition: 0.4s ease-in-out;
+      transition-delay: 0.4s;
+    }
+    
+    .close:before {
+      content: "";
+      position: absolute;
+      right: 13px;
+      width: 15px;
+      height: 4px;
+      margin-top: 6px;
+      margin-left: -13px;
+      background-color: #fff;
+      transform: rotate(45deg);
+      transition: 0.2s ease-in-out;
+    }
+    
+    .close:after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 4px;
+      background-color: #fff;
+      margin-top: 6px;
+      margin-left: -13px;
+      cursor: pointer;
+      transform: rotate(-45deg);
+    }
+    
+    .square {
+      box-sizing: border-box;
+      padding: 0 40px 0 10px;
+      width: 200px;
+      height: 35px;
+      border: 2px solid #FFFFFF;
+      border-radius: 0;
+      background: none;
+      color: #fff;
+      font-family: Roboto;
+      font-size: 16px;
+      font-weight: 400;
+      outline: 0;
+      transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
+      transition-delay: 0.4s, 0s, 0.4s;
+      transform: translate(-100%, -50%);
+    }
   }
 
   &-name {
