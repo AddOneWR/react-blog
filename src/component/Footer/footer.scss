@@ -2,15 +2,16 @@
   &-container {
     font-family: Menlo, Monaco, 'Courier New', monospace;
     font-size: 14px;
-    color: #666;
+    color: #222831;
     text-align: center;
     padding: 10px 0;
+    background-color: #fff;
   }
 
   &-friend {
 
     &_link {
-      color: #666;
+      color: #222831;
       text-decoration: none;
       
       &:hover {
