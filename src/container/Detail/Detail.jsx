@@ -24,14 +24,20 @@ class Detail extends Component {
     let href = window.location.href;
     let category = j2url.getParam(href, 'category');
     let name = j2url.getParam(href, 'name');
-    let markdown = require(`../../markdown/${category}/${name}.md`);
-    setTimeout(() => {
-      this.getToc(markdown)
+    try {
+      let markdown = require(`../../markdown/${category}/${name}.md`);
+      setTimeout(() => {
+        this.getToc(markdown)
+        this.setState({
+          markdown: markdown,
+          name: name
+        })
+      }, 800)
+    } catch (err) {
       this.setState({
-        markdown: markdown,
-        name: name
+        markdown: '# 不要闲着没事乱改URL'
       })
-    }, 800)
+    }
   }
 
   getToc = (markdown) => {

@@ -10,6 +10,7 @@
   &-container {
     font-family: Menlo, Monaco, 'Courier New', monospace;
     width: 750px;
+    min-height: 80%;
     margin: 100px auto;
 
     @media screen and (max-width: 768px) {

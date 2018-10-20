@@ -19,28 +19,37 @@ class List extends Component {
         desc: '',
         list: []
       };
+
       Object.keys(mdList).forEach((key) => {
         mdList[key].list.forEach((item) => {
           if(item.title.toLowerCase().search(searchValue.toLowerCase()) !== -1) {
+            item.category = key;
             searchList.list.push(item);
           }
         })
       })
+
       searchList.list.sort(
         (b, a) => Date.parse(a.time) - Date.parse(b.time)
       );
+
       this.setState({
         mdList: searchList
       })
+
       return;
     }
-    let category = j2url.getParam(window.location.href, 'category')
+
+    let category = j2url.getParam(window.location.href, 'category');
+
     if(!mdList[category]) {
       return;
     }
+
     mdList[category].list.sort(
       (b, a) => Date.parse(a.time) - Date.parse(b.time)
     );
+    
     this.setState({
       mdList: mdList[category],
       category: category
@@ -66,7 +75,7 @@ class List extends Component {
              mdList && mdList.list.map(item => (
               <Motion defaultStyle={{x: 0}} style={{x: spring(1)}} key={item.time}>
                 {interpolatingStyle => (
-                  <Link to={`/detail?category=${category}&name=${item.title}`} style={{color: '#fff'}}>
+                  <Link to={`/detail?category=${category ? category : item.category}&name=${item.title}`} style={{color: '#fff'}}>
                     <div 
                       className="list-item"
                       style={{opacity: interpolatingStyle.x}}
