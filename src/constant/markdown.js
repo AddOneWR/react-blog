@@ -1,4 +1,4 @@
-let mdList = {
+const mdList = {
   c: {
     desc: '学校内C, C++学习以及计算机系统基础相关知识及代码',
     list: [
@@ -155,7 +155,7 @@ let mdList = {
       {
         title: 'Parcel上手与React开发环境搭建',
         desc: '我从不关注代码之外的东西，因为我相信有人会帮我做这些...',
-        time: '2018-03-25 21:22:56'
+        time: '2018-03-25 21:22:59'
       },
       {
         title: 'Webpack配置讲解',

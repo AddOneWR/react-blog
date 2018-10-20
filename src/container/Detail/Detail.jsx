@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Motion, spring } from 'react-motion';
 import j2url from 'j2url';
 import marked from 'marked';
-import hljs from 'highlight.js/lib/highlight';
+import hljs from 'highlight.js';
 import Particles from 'react-particles-js';
 import Loading from '../../component/Loading/Loading';
 import Footer from '../../component/Footer/Footer';

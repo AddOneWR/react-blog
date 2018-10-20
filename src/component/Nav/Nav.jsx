@@ -25,7 +25,11 @@ class Nav extends Component {
 
   onKeyup = (e) => {
     if(e.keyCode === 13) {
-      console.log(this.state.value)
+      let value = this.state.value;
+      this.setState({
+        value: ''
+      })
+      window.location.href = `/list?search=${value}`
     }
   }
 
