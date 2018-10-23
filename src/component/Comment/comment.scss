@@ -1,0 +1,79 @@
+.comment {
+
+  &-container {
+    @media screen and (min-width: 768px) {
+      width: 600px;
+      height: 40px;
+    }
+    margin-top: 30px;
+    overflow: hidden;
+  }
+
+  &-input {
+    width: 400px;
+    height: 30px;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    padding-left: 10px;
+
+    @media screen and (max-width: 768px) {
+      & {
+        display: block;
+        width: 200px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &-submit {
+    width: 0;
+    background: #f30e5c;
+    transition: width .8s ease-out;
+
+    input {
+      color: #f30e5c;
+      border: none;
+    }
+
+    input:-ms-input-placeholder {
+      color: #f30e5c;
+    }
+
+    input::-webkit-input-placeholder {
+      color: #f30e5c;
+    }
+  }
+
+  &-btn {
+    width: 100px;
+    height: 42px;
+    font-size: 16px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 30px;
+    padding: 10px;
+    transition: all .2s ease-in;
+
+    &:hover {
+      color: #f30e5c;
+    }
+
+    @media screen and (max-width: 768px) {
+      & {
+        width: 200px;
+        font-size: 12px;
+        margin-left: 0;
+
+        &:hover {
+          color: #f30e5c;
+          font-size: 40px;
+        }
+      }
+    }
+  }
+}

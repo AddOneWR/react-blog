@@ -6,6 +6,7 @@ import hljs from 'highlight.js';
 import Particles from 'react-particles-js';
 import Loading from '../../component/Loading/Loading';
 import Footer from '../../component/Footer/Footer';
+import Comment from '../../component/Comment/Comment';
 
 import './detail.scss';
 
@@ -104,6 +105,7 @@ class Detail extends Component {
             />
             <div className="detail-name">{name}</div>
             <div dangerouslySetInnerHTML={{ __html: marked(markdown) }}></div>
+            <Comment />
           </div>
         }
         { markdown ? <Footer /> : ''}
