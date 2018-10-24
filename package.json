@@ -27,7 +27,7 @@
     "fs-extra": "3.0.1",
     "highlight.js": "^9.12.0",
     "html-webpack-plugin": "2.29.0",
-    "j2url": "^1.0.0",
+    "j2url": "^1.0.1",
     "jest": "20.0.4",
     "marked": "^0.5.0",
     "object-assign": "4.1.1",
@@ -98,6 +98,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "compression-webpack-plugin": "^1.1.12",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "text-loader": "^0.0.1"

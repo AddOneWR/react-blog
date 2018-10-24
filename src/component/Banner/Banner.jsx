@@ -4,7 +4,6 @@ import { Motion, spring } from 'react-motion';
 import markdown from '../../constant/markdown';
 
 import './banner.scss';
-import { Object } from 'core-js';
 
 class Banner extends Component {
 

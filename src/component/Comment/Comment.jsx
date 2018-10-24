@@ -22,7 +22,7 @@ class Comment extends Component {
     });
     setTimeout(() => {
       alert('提交成功，等待后台运营小姐姐审核哦~')
-    }, 800)
+    }, 820)
   }
 
   render() {
