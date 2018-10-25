@@ -2,14 +2,15 @@
 @import './markdown.scss';
 
 .main-container {
-  height: 100%;
+  position: relative;
+  min-height: 100vh;
 }
 
 .detail {
 
   &-container {
     font-family: Menlo, Monaco, 'Courier New', monospace;
-    width: 750px;
+    width: 750px; 
     min-height: 80%;
     margin: 100px auto;
 

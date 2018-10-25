@@ -6,6 +6,7 @@ import hljs from 'highlight.js';
 import Loading from '../../component/Loading/Loading';
 import Footer from '../../component/Footer/Footer';
 import Comment from '../../component/Comment/Comment';
+import DetailBg from '../../component/DetailBg/DetailBg';
 
 import './detail.scss';
 
@@ -96,6 +97,7 @@ class Detail extends Component {
             { this.renderMenu(toc) }
             <div className="detail-name">{name}</div>
             <div dangerouslySetInnerHTML={{ __html: marked(markdown) }}></div>
+            <DetailBg />
             <Comment />
           </div>
         }
