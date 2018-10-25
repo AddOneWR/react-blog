@@ -27,7 +27,7 @@ program
       ])
       .then(answer => {
         let { title, desc, category } = answer;
-        let filePath = `./src/markdown/${category}/${title}.md`;
+        let filePath = `./public/markdown/${category}/${title}.md`;
 
         mdList[category].list.push({
           title: title,
@@ -72,7 +72,7 @@ program
       ])
       .then(answer => {
         let { title, category } = answer;
-        let filePath = `./src/markdown/${category}/${title}.md`;
+        let filePath = `./public/markdown/${category}/${title}.md`;
         let removeIndex = -1;
 
         mdList[category].list.forEach((item, index) => {

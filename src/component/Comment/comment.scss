@@ -1,3 +1,5 @@
+$input-bg: #5dabeb;
+
 .comment {
 
   &-container {
@@ -30,20 +32,20 @@
 
   &-submit {
     width: 0;
-    background: #f30e5c;
+    background: $input-bg;
     transition: width .8s ease-out;
 
     input {
-      color: #f30e5c;
+      color: $input-bg;
       border: none;
     }
 
     input:-ms-input-placeholder {
-      color: #f30e5c;
+      color: $input-bg;
     }
 
     input::-webkit-input-placeholder {
-      color: #f30e5c;
+      color: $input-bg;
     }
   }
 
@@ -60,7 +62,7 @@
     transition: all .2s ease-in;
 
     &:hover {
-      color: #f30e5c;
+      color: $input-bg;
     }
 
     @media screen and (max-width: 768px) {
@@ -70,7 +72,7 @@
         margin-left: 0;
 
         &:hover {
-          color: #f30e5c;
+          color: $input-bg;
           font-size: 40px;
         }
       }

@@ -3,7 +3,6 @@ import { Motion, spring } from 'react-motion';
 import j2url from 'j2url';
 import marked from 'marked';
 import hljs from 'highlight.js';
-import Particles from 'react-particles-js';
 import Loading from '../../component/Loading/Loading';
 import Footer from '../../component/Footer/Footer';
 import Comment from '../../component/Comment/Comment';
@@ -26,14 +25,20 @@ class Detail extends Component {
     let category = j2url.getParam(href, 'category');
     let name = j2url.getParam(href, 'name');
     try {
-      let markdown = require(`../../markdown/${category}/${name}.md`);
-      setTimeout(() => {
-        this.getToc(markdown)
-        this.setState({
-          markdown: markdown,
-          name: name
+      fetch(`../../markdown/${category}/${name}.md`)
+        .then(res => {
+          let markdown = res.text()
+          return markdown;
         })
-      }, 800)
+        .then(markdown => {
+          setTimeout(() => {
+            this.getToc(markdown);
+            this.setState({
+              markdown: markdown,
+              name: name
+            })
+          }, 800);
+        })
     } catch (err) {
       this.setState({
         markdown: '# 不要闲着没事乱改URL'
@@ -89,20 +94,6 @@ class Detail extends Component {
           <Loading /> :
           <div className="detail-container markdown">
             { this.renderMenu(toc) }
-            <Particles 
-              className="detail-bg"
-              params={{
-                particles: {
-                  line_linked: {
-                    shadow: {
-                      enable: true,
-                      color: "#393e46",
-                      blur: 1
-                    }
-                  }
-                }
-              }}
-            />
             <div className="detail-name">{name}</div>
             <div dangerouslySetInnerHTML={{ __html: marked(markdown) }}></div>
             <Comment />

@@ -39,7 +39,6 @@
     "react-dev-utils": "^5.0.2",
     "react-dom": "^16.5.1",
     "react-motion": "^0.5.2",
-    "react-particles-js": "^2.3.0",
     "react-router-dom": "^4.3.1",
     "resolve": "1.6.0",
     "style-loader": "0.19.0",
@@ -53,7 +52,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "analyz": "NODE_ENV=production npm_config_report=true npm run build"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -101,6 +101,7 @@
     "compression-webpack-plugin": "^1.1.12",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
-    "text-loader": "^0.0.1"
+    "text-loader": "^0.0.1",
+    "webpack-bundle-analyzer": "^3.0.3"
   }
 }

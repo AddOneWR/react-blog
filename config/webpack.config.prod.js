@@ -11,6 +11,7 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const CompressionPlugin = require("compression-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
@@ -95,6 +96,9 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
+      'react': path.resolve(__dirname, '../node_modules/react/cjs/react.production.min.js'),
+      'react-dom': path.resolve(__dirname, '../node_modules/react-dom/cjs/react-dom.production.min.js'),
+      'react-router-dom': path.resolve(__dirname, '../node_modules/react-router-dom/umd/react-router-dom.min.js'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -345,7 +349,7 @@ module.exports = {
       threshold: 10240,
       minRatio: 0
     }),
-    
+    new BundleAnalyzerPlugin()
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
