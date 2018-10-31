@@ -63,7 +63,9 @@ class Banner extends Component {
         <Motion defaultStyle={{x: 5000}} style={{x: spring(0)}}>
           {interpolatingStyle => (
             <div className="banner-top" style={{transform: `translateX(${interpolatingStyle.x}px)`}}>
+              <Link to="/about">
               <img src="http://p5sf6v0wz.bkt.clouddn.com/avatar.jpg" className="banner-top_avatar" alt="avatar"/>
+              </Link>
             </div>
           )}
         </Motion>

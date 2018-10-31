@@ -7,6 +7,7 @@ import Category from './container/Category/Category';
 import List from './container/List/List';
 import Detail from './container/Detail/Detail';
 import NotFound from './container/NotFound/NotFound';
+import About from './container/AboutMe/AboutMe';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ class App extends Component {
           <Route exact path='/category' component={Category} />
           <Route exact path='/list' component={List} />
           <Route exact path='/detail' component={Detail} />
+          <Route exact path='/about' component={About} />
           <Route component={NotFound} />
         </Switch>
       </div>

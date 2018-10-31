@@ -21,12 +21,6 @@ const Footer = () => (
         ))
       }
     </div>
-    <div className="footer-tips">No purpose, No watching</div>
-    <div className="footer-tips">
-      <span role="img" aria-label="heart" className="footer-emoji">💖</span>
-      微信 eDQ2NzA3MjI4MA==
-      <span role="img" aria-label="kiss" className="footer-emoji">😙</span>
-    </div>
     <div className="footer-copyright">© 2017 - 2018 By AddOneG</div>
   </div>
 )
