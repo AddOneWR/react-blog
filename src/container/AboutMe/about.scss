@@ -18,5 +18,14 @@
       list-style: none;
       padding: 0;
     }
+
+    a {
+      color: black;
+      text-decoration: none;
+
+      &:hover {
+        color: #f6416c;
+      }
+    }
   }
 }
