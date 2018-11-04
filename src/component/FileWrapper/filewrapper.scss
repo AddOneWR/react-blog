@@ -1,0 +1,61 @@
+.filewrapper {
+  &-container {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -30%);
+    width: 600px;
+    height: 415px;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    border-radius: 5px;
+    transition: all 0.2s ease-in;
+  }
+
+  &-open {
+    visibility: unset;
+    opacity: 1;
+  }
+
+  &-banner {
+    height: 45px;
+    font-size: 14px;
+    background: -webkit-linear-gradient(top, #eee, #d7d5d7);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+
+    &-top {
+      height: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    &-bottom {
+      text-align: center;
+      color: #333;
+    }
+  }
+
+  &-close {
+    width: 10px;
+    height: 10px;
+    background: #eb6d5f;
+    border: 1px solid red;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  &-title {
+    width: 90%;
+    text-align: center;
+  }
+
+  &-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    height: 370px;
+    overflow-y: auto;
+  }
+}

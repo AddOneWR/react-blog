@@ -23,7 +23,7 @@ const React = {
 export default React;
 ```
 
-其中`Component`为基本组件作为父类,`createElement`来创建组件
+其中`Component`为基本组件作为父类,`createElement`来创建组件
 
 ```Javascript
 // src/react/Component.js
@@ -78,7 +78,7 @@ function createElement(tag, attrs, children){
 export default createElement;
 ```
 
-这里同样进行一些初始化操作，但是对传进来的`children`进行了特殊的处理，利用`arguments`获得`children`长度，之后决定是转化成数组还是直接写到`porps`上去，最后将所有属性作为对象返回，当用户创建`React`对象时会自动调用这个函数
+这里同样进行一些初始化操作，但是对传进来的`children`进行了特殊的处理，利用`arguments`获得`children`长度，之后决定是转化成数组还是直接写到`porps`上去，最后将所有属性作为对象返回，当用户创建`React`对象时会自动调用这个函数
 
 ### 渲染
 
@@ -98,7 +98,7 @@ const ReactDOM = {
 export default ReactDOM;
 ```
 
-在这里定义了一个大名鼎鼎的`render`函数，传入两个参数分别为当前的元素和要插入的容器，然后调用`Render`文件中的`render`方法
+在这里定义了一个大名鼎鼎的`render`函数，传入两个参数分别为当前的元素和要插入的容器，然后调用`Render`文件中的`render`方法
 
 ```Javascript
 // src/react-dom/Render.js
@@ -183,7 +183,7 @@ function isSameDom(item, dom){
 
 export default render;
 ```
-
+
 代码比较长，我们这里分段分析一下
 
 ```Javascript
@@ -217,7 +217,7 @@ if(nextElement.attrs){
 }
 ```
 
-如果都不是的话即为普通元素，则直接调用`document.createElement`创建`Dom`，之后遍历`attrs`调用`setAttribute`来设置属性，`Object.keys`将对象转化成数组方便遍历，接下来我们看一下`setAttribute`方法
+如果都不是的话即为普通元素，则直接调用`document.createElement`创建`Dom`，之后遍历`attrs`调用`setAttribute`来设置属性，`Object.keys`将对象转化成数组方便遍历，接下来我们看一下`setAttribute`方法
 
 ```Javascript
 function setAttribute(key, value, dom){
@@ -249,7 +249,7 @@ export default setAttribute;
 
 + 先将`className`转化为`class`
 + 若绑定的类型为`function`则转化成小写后写入`dom`属性
-+ 若`key`为`style`，则分类讨论，若属性为`string`则写入`cssText`，若为`object`则判断其是否为`number`，若是则自动在后面添加`px`，然后写入`style`
++ 若`key`为`style`，则分类讨论，若属性为`string`则写入`cssText`，若为`object`则判断其是否为`number`，若是则自动在后面添加`px`，然后写入`style`
 + 若为其他则直接调用原生`setAttribute`方法
 + 若属性值为空则在`dom`上删除该属性
 
@@ -265,7 +265,7 @@ if(nextElement.props){
 }
 ```
 
-顺着`render`往下看，这里遍历元素的子元素递归渲染
+顺着`render`往下看，这里遍历元素的子元素递归渲染
 
 ```Javascript
 if(nextElement._component){
@@ -281,7 +281,7 @@ if(nextElement._component){
 return container.appendChild(dom)
 ```
 
-最后判断两次`render`的组件是否为同一个，若为同一个则调用`replaceChild`方法进行替换，否则`appendChild`到容器中
+最后判断两次`render`的组件是否为同一个，若为同一个则调用`replaceChild`方法进行替换，否则`appendChild`到容器中
 
 回到上面`nextElement.tag === 'function'`中，其中有两个函数`createComponent`和`setComponentProps`
 
@@ -324,7 +324,7 @@ export function setComponentProps(component, props, container){
 }
 ```
 
-首先判断组件的`base`是否存在，若存在则判断是否为初次挂载，否则判断是否为接受新的`props`，然后将`props`即`render`中的`attrs`和`container`作为成员添加到`component`上，`parentNode`用来定位父元素方便更新，然后调用`renderComponent`进行组件挂载或者更新
+首先判断组件的`base`是否存在，若存在则判断是否为初次挂载，否则判断是否为接受新的`props`，然后将`props`即`render`中的`attrs`和`container`作为成员添加到`component`上，`parentNode`用来定位父元素方便更新，然后调用`renderComponent`进行组件挂载或者更新
 
 ```Javascript
 // src/react-dom/Diff.js
@@ -391,7 +391,7 @@ export function enqueueSetState(partialState, component){
 }
 ```
 
-`isbatchingUpdates`判断事务是否处于更新状态(初始值为`false`)，若不为更新则调用`callbackQueue`来执行`flushBatchedUpdates`函数来更新组件，然后设置更新状态为`true`，将当前状态和组件添加到`batchingUpdates`中，最后判断`dirtyComponent`中是否有当前组件，若无则添加进去
+`isbatchingUpdates`判断事务是否处于更新状态(初始值为`false`)，若不为更新则调用`callbackQueue`来执行`flushBatchedUpdates`函数来更新组件，然后设置更新状态为`true`，将当前状态和组件添加到`batchingUpdates`中，最后判断`dirtyComponent`中是否有当前组件，若无则添加进去
 
 > `callbackQueue`使用了`Promise`来达到延时模拟`setState`的功能
 
@@ -424,8 +424,8 @@ function flushBatchedUpdates(){
 }
 ```
 
-遍历`batchingUpdates`数组排头(`shift`自查)，获取其中组件和状态，判断组件的前一个状态，若无之前的状态，则将空对象和当前状态合并设为该组件的初始状态，若💰一状态为`function`，则调用该函数并将返回值和之前状态合并，若不为函数则直接合并，然后设置组件的上一状态为其之前的状态，最后遍历`dirtyComponent`更新组件，完成后设置`isbatchingUpdates`为`false`
+遍历`batchingUpdates`数组排头(`shift`自查)，获取其中组件和状态，判断组件的前一个状态，若无之前的状态，则将空对象和当前状态合并设为该组件的初始状态，若前一状态为`function`，则调用该函数并将返回值和之前状态合并，若不为函数则直接合并，然后设置组件的上一状态为其之前的状态，最后遍历`dirtyComponent`更新组件，完成后设置`isbatchingUpdates`为`false`
 
-至此，基本功能完成
+至此，基本功能完成
 
 代码请移步[GitHub仓库](https://github.com/AddOneDn/react-like)

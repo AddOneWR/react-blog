@@ -1,0 +1,21 @@
+.mac {
+  &-container {
+    position: relative;
+    height: 100%;
+    background-image: url('http://p5sf6v0wz.bkt.clouddn.com/5b90f48a59dea.jpg');
+    background-size: cover;
+    animation: fade 0.2s ease-in;
+
+    &-file {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 100px;
+      height: 90%;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}

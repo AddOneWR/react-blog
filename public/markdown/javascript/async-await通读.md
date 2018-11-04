@@ -1,4 +1,4 @@
-## async ?
+## async
 
 ### 语法
 > async function name([param[, param[, ... param]]]) { statements }
