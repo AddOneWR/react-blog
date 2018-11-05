@@ -29,7 +29,7 @@ class MacNav extends Component {
       <div className="macnav-container">
         <div className="macnav-main">
           <Link to='/'>
-            <img src={require('../../static/mac.png')} alt="mac" className="macnav-icon"></img>
+            <img src='http://p5sf6v0wz.bkt.clouddn.com/mac.png' alt="mac" className="macnav-icon"></img>
           </Link>
           <div className="macnav-name">AddOneG</div>
           <div className="macnav-link" onClick={this.openLinkList}>友情链接</div>
