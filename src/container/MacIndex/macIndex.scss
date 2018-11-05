@@ -2,10 +2,10 @@
   &-container {
     position: relative;
     height: 100%;
-    background-image: url('http://p5sf6v0wz.bkt.clouddn.com/5b90f48a59dea.jpg');
+    background-image: url('../../static//mac-bg-zip.jpg');
     background-size: cover;
     animation: fade 0.2s ease-in;
-
+    
     &-file {
       display: flex;
       flex-direction: column;

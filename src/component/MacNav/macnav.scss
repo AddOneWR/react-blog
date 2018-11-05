@@ -1,0 +1,77 @@
+.macnav {
+  &-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    
+    &:hover {
+      .macnav-main {
+        height: 20px;
+        visibility: visible;
+      }
+    }
+  }
+
+  &-main {
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+    width: 100%;
+    height: 0;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #d2d3d5;
+    border-bottom: 1px solid #d6d7da;
+    transition: all .1s ease-in;
+
+    a {
+      height: 18px;
+      color: #000;
+
+      &:hover {
+        color: #f6416c;
+      }
+    }
+  }
+
+  &-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  &-name {
+    margin: 0 20px;
+  }
+
+  &-link {
+    cursor: pointer;
+    padding-left: 20px;
+  }
+
+  &-hideList {
+    padding-left: 20px;
+    
+    li {
+      float: left;
+      list-style: none;
+      padding: 0 10px;
+    }
+  }
+
+  &-linkList {
+    transform: translateX(-1000px);
+    transition: all .2s ease-out;
+  }
+
+  &-proList {
+    transform: translateX(-1500px);
+    transition: all .2s ease-out;
+  }
+
+  &-open {
+    transform: translateX(0);
+  }
+}

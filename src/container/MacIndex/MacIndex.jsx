@@ -4,6 +4,7 @@ import cn from 'astro-classname';
 import FileCard from '../../component/FileCard/FileCard';
 import FileWrapper from '../../component/FileWrapper/FileWrapper';
 import MacBottom from '../../component/MacBottom/MacBottom';
+import MacNav from '../../component/MacNav/MacNav';
 import categoryList from '../../constant/category';
 import './macIndex.scss';
 
@@ -31,6 +32,7 @@ class MacIndex extends Component {
     const { category, isOpen } = this.state;
     return (
       <div className='mac-container'>
+        <MacNav />
         <div className='mac-container-file'>
         {
           categoryList.map((item, index) => (
