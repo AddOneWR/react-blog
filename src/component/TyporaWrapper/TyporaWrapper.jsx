@@ -3,8 +3,8 @@ import marked from 'marked';
 import hljs from 'highlight.js';
 import cn from 'astro-classname';
 
-import './typora.scss';
 import '../../container/Detail/detail.scss';
+import './typora.scss';
 
 class TyporaWrapper extends Component {
   constructor(props) {
@@ -98,8 +98,12 @@ class TyporaWrapper extends Component {
           <div className="typora-banner-title">{name}</div>
         </div>
         <div className="typora-container-flex">
-          { this.renderMenu(toc) }
+        { this.renderMenu(toc) }
+        {
+          !markdown ?
+          <div className="typora-container-flex-loading">努力加载中(๑•̀ㅂ•́)و✧...</div> :
           <div dangerouslySetInnerHTML={{ __html: marked(markdown) }} className="typora-main"></div>
+        }
         </div>
       </div>
     )
