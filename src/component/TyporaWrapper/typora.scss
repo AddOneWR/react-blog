@@ -1,0 +1,113 @@
+.typora {
+  &-container {
+    visibility: hidden;
+    position: absolute;
+    background: #fff;
+    margin: 0;
+    border-radius: 5px;
+    opacity: 0;
+    border: 1px solid #ddd;
+    transition: all .2s linear;
+    z-index: 10;
+    
+    &-flex {
+      display: flex;
+      height: 580px;
+      overflow-y: auto;
+    }
+  }
+
+  &-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &-normal {
+    top: 5%;
+    left: 20%;
+    width: 900px;
+    height: 600px;
+  }
+
+  &-large {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .typora-container-flex {
+      height: 100%;
+    }
+
+    .typora-main {
+      flex: 1;
+    }
+  }
+
+  &-banner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+    font-size: 14px;
+
+    .contro-btn {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 3px;
+      cursor: pointer;
+    }
+
+    &-title {
+      color: #666;
+      width: 85%;
+      text-align: center;
+    }
+
+    &-close {
+      background: #eb6d5f;
+      border: 1px solid red; 
+    }
+
+    &-normal {
+      background: #f6c250;
+      border: 1px solid #f3b838; 
+    }
+    
+    &-large {
+      background: #65cc57;
+      border: 1px solid #5adf49; 
+    }
+  }
+
+  &-main {
+    width: 630px;
+    padding: 20px;
+  }
+
+  &-menu-container {
+    width: 270px;
+    font-size: 14px;
+    margin-top: 20px;
+    overflow-y: auto;
+
+    a {
+      color: #405063;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @for $i from 1 through 5 {
+      .level#{$i} {
+        padding: 5px 0 5px (10px * $i);
+
+        &:hover {
+          background-color: #f0f0f0 !important;
+        } 
+      }
+    }
+  }
+}

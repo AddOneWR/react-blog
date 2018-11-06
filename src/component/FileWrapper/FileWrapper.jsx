@@ -16,7 +16,7 @@ class FileWrapper extends Component {
   }
 
   render() {
-    const { category, onClose, classNames } = this.props;
+    const { category, onClose, classNames, onFileOpen } = this.props;
     const mdList = markdownList[category];
     return (
       <div className={`filewrapper-container ${classNames}`}>
@@ -33,7 +33,13 @@ class FileWrapper extends Component {
             mdList.list.sort(
               (b, a) => Date.parse(a.time) - Date.parse(b.time)
             ).map((item, index) => (
-              <FileCard class="file-card-small" name={item.title} key={index} category={category}/>
+              <FileCard 
+                class="file-card-small" 
+                name={item.title} 
+                key={index} 
+                category={category}
+                onFileOpen={onFileOpen}
+              />
             ))
         }
         </div>

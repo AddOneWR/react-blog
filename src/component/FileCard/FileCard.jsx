@@ -10,12 +10,13 @@ const renderNoLink = (props) => (
 )
 
 const renderLink = (props) => (
-  <a href={`/detail?category=${props.category}&name=${props.name}`} target="_blank" rel="noopener noreferrer nofollow">
-    <div className={`file-card-item ${props.class}`}>
-      <img src='http://p5sf6v0wz.bkt.clouddn.com/mac-md.png' className={`file-card-img ${props.class}`} alt="macFile"></img>
-      <span className="file-card-name">{props.name || '无名氏'}</span>
-    </div>
-  </a>
+  <div 
+    className={`file-card-item ${props.class}`} 
+    onClick={props.onFileOpen.bind(null, props.category, props.name)}
+  >
+    <img src='http://p5sf6v0wz.bkt.clouddn.com/mac-md.png' className={`file-card-img ${props.class}`} alt="macFile"></img>
+    <span className="file-card-name">{props.name || '无名氏'}</span>
+  </div>
 )
 
 const FileCard = (props) => (
