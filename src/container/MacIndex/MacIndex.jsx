@@ -6,6 +6,7 @@ import FileWrapper from '../../component/FileWrapper/FileWrapper';
 import MacBottom from '../../component/MacBottom/MacBottom';
 import MacNav from '../../component/MacNav/MacNav';
 import TyporaWrapper from '../../component/TyporaWrapper/TyporaWrapper';
+import MacSearch from '../../component/MacSearch/MacSearch';
 import categoryList from '../../constant/category';
 import './macIndex.scss';
 
@@ -15,6 +16,8 @@ class MacIndex extends Component {
     category: 'react',
     isOpen: false,
     isMdOpen: false,
+    isSearchOpen: false,
+    isSearch: false,
     name: ''
   }
 
@@ -27,7 +30,8 @@ class MacIndex extends Component {
   
   handleClose = () => {
     this.setState({
-      isOpen: false
+      isOpen: false,
+      isSearch: false
     })
   }
 
@@ -41,12 +45,32 @@ class MacIndex extends Component {
     this.setState({
       category: category,
       name: name,
-      isMdOpen: true
+      isMdOpen: true,
+    })
+  }
+
+  openSearch = () => {
+    this.setState({
+      isSearchOpen: true
+    })
+  }
+
+  handleSearchClose = () => {
+    this.setState({
+      isSearchOpen: false
+    })
+  }
+
+  onSearch = (value) => {
+    this.setState({
+      searchValue: value,
+      isSearch: true,
+      isOpen: true
     })
   }
 
   render() {
-    const { category, name, isOpen, isMdOpen } = this.state;
+    const { category, name, isOpen, isMdOpen, isSearchOpen, searchValue, isSearch } = this.state;
     return (
       <div className='mac-container'>
         <MacNav />
@@ -80,8 +104,18 @@ class MacIndex extends Component {
           category={category} 
           onClose={this.handleClose}
           onFileOpen={this.handleFileOpen}
+          isSearch={isSearch}
+          searchValue={searchValue}
         />
-        <MacBottom />
+        
+        <MacBottom handleSearch={this.openSearch}/>
+        {
+          isSearchOpen ? 
+          <MacSearch 
+            onSearch={this.onSearch}
+            onClose={this.handleSearchClose}
+          /> : null
+        }
       </div>
     )
   }
