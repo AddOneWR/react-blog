@@ -1,6 +1,7 @@
 .mac {
   &-container {
     position: relative;
+    display: flex;
     height: 100%;
     background-image: url('http://p5sf6v0wz.bkt.clouddn.com/mac-bg-zip-small.jpg');
     background-size: cover;
@@ -16,6 +17,14 @@
 
     a {
       text-decoration: none;
+    }
+
+    .rec {
+      &-container {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+      }
     }
   }
 }
