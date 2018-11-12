@@ -58,7 +58,11 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: false,
   // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  // entry: [require.resolve('./polyfills'), paths.appIndexJs, paths.h5AppIndexJs],
+  entry: {
+    index: [require.resolve('./polyfills'), paths.appIndexJs],
+    h5Index: [require.resolve('./polyfills'), paths.h5AppIndexJs]
+  },
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -256,6 +260,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
+      filename: 'index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -268,6 +273,25 @@ module.exports = {
         minifyCSS: true,
         minifyURLs: true,
       },
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: paths.appHtml,
+      filename: 'h5Index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
+      chunks: ['h5Index']
     }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
