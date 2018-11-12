@@ -260,7 +260,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
-      filename: 'index.html',
+      filename: 'index/index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -278,7 +278,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
-      filename: 'h5Index.html',
+      filename: 'h5Index/index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
