@@ -42,7 +42,6 @@ class MacIndex extends Component {
         }
       })
     })
-    console.log(curMonthList)
     this.setState({
       curMonthList: curMonthList
     })
