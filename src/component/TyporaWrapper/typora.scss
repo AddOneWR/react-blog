@@ -19,6 +19,10 @@
         font-size: 20px;
         margin: 280px 0 0 20px;
       }
+
+      @media screen and (min-height: 1000px) and (max-height: 1400px) {
+        height: 1000px;
+      }
     }
   }
 
