@@ -44,12 +44,12 @@ class Banner extends Component {
     {
       list ?
       list.map((item, index) => (
-        <a 
+        <Link 
           key={index}
-          href={`/detail?category=${item.key}&name=${item.value.title}`}
+          to={`/detail?category=${item.key}&name=${item.value.title}`}
         >
           {item.value.title}
-        </a>
+        </Link>
       )) :
       '懒惰的博主已经一个多星期没更新了，快去催他'
     }
