@@ -14,7 +14,11 @@ const renderLink = (props) => (
     className={`file-card-item ${props.class}`} 
     onClick={props.onFileOpen.bind(null, props.category, props.name)}
   >
-    <img src='http://p5sf6v0wz.bkt.clouddn.com/mac-md.png' className={`file-card-img ${props.class}`} alt="macFile"></img>
+    <img 
+      src={props.imgSrc ? props.imgSrc : 'http://p5sf6v0wz.bkt.clouddn.com/mac-md.png'} 
+      className={`file-card-img ${props.class}`} 
+      alt="macFile">
+    </img>
     <span className="file-card-name">{props.name || '无名氏'}</span>
   </div>
 )

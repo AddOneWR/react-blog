@@ -156,6 +156,11 @@ const mdList = {
         "title": "Node异步IO与编程",
         "desc": "Node.js让Javascript在服务器端焕发生机",
         "time": "2018-10-29 16:25:03"
+      },
+      {
+        "title": "有点意思的Object.defineProperty",
+        "desc": "这个东西很有意思，它会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象",
+        "time": "2018-11-18 16:27:04"
       }
     ]
   },
