@@ -4,7 +4,7 @@ import './filecard.scss';
 
 const renderNoLink = (props) => (
   <div className='file-card-item' onClick={props.onClick}>
-    <img src='http://p5sf6v0wz.bkt.clouddn.com/file_120x120.png' className='file-card-img' alt="macFile"></img>
+    <img src='https://s1.ax1x.com/2018/11/21/F9fOjf.png' className='file-card-img file-card-img-macfile' alt="macFile"></img>
     <span className="file-card-name">{props.name || '无名氏'}</span>
   </div>
 )
