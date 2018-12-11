@@ -101,11 +101,12 @@ class MacIndex extends Component {
       list ?
       list.map((item, index) => (
         <FileCard 
-          name={item.value.title} 
+          name={item.value.title}
+          class='file-card-rec'
           key={index} 
           category={item.key}
           onFileOpen={this.handleFileOpen}
-          imgSrc={'https://s1.ax1x.com/2018/11/18/FSQFSg.png'}
+          imgSrc={'https://s1.ax1x.com/2018/12/11/FY8raq.png'}
         />
       )) :
       '懒惰的博主已经一个多星期没更新了，快去催他'

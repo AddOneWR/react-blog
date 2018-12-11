@@ -4,7 +4,7 @@ import './filecard.scss';
 
 const renderNoLink = (props) => (
   <div className='file-card-item' onClick={props.onClick}>
-    <img src='https://s1.ax1x.com/2018/11/21/F9fOjf.png' className='file-card-img file-card-img-macfile' alt="macFile"></img>
+    <img src='https://s1.ax1x.com/2018/12/11/FY8V56.png' className='file-card-img' alt="macFile"></img>
     <span className="file-card-name">{props.name || '无名氏'}</span>
   </div>
 )
@@ -15,7 +15,7 @@ const renderLink = (props) => (
     onClick={props.onFileOpen.bind(null, props.category, props.name)}
   >
     <img 
-      src={props.imgSrc ? props.imgSrc : 'http://p5sf6v0wz.bkt.clouddn.com/mac-md.png'} 
+      src={props.imgSrc ? props.imgSrc : 'https://s1.ax1x.com/2018/12/11/FY3qDs.png'} 
       className={`file-card-img ${props.class}`} 
       alt="macFile">
     </img>
