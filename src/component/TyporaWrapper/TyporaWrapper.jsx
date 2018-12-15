@@ -26,6 +26,7 @@ class TyporaWrapper extends Component {
     try {
       fetch(`../../markdown/${category}/${name}.md`)
         .then(res => {
+          console.log(res)
           let markdown = res.text()
           return markdown;
         })
