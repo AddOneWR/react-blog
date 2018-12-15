@@ -30,7 +30,7 @@ class MacIndex extends Component {
   getRecentMd = () => {
     let curMonthList = [];
     let now = new Date();
-    let lastMonth = new Date(now.getTime() - 7 * 24 * 3600 * 1000 * 4);
+    let lastMonth = new Date(now.getTime() - 3 * 24 * 3600 * 1000 * 4);
     let lastMonthStamp = Date.parse(lastMonth);
     Object.keys(markdown).forEach(key => {
       markdown[key].list.forEach(item => {
