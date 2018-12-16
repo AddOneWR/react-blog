@@ -64,7 +64,7 @@ class Banner extends Component {
           {interpolatingStyle => (
             <div className="banner-top" style={{transform: `translateX(${interpolatingStyle.x}px)`}}>
               <Link to="/about">
-              <img src="http://p5sf6v0wz.bkt.clouddn.com/avatar.jpg" className="banner-top_avatar" alt="avatar"/>
+              <img src="https://s1.ax1x.com/2018/12/11/FY32DA.jpg" className="banner-top_avatar" alt="avatar"/>
               </Link>
             </div>
           )}
