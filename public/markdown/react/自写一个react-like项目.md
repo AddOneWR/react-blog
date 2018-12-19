@@ -247,11 +247,11 @@ function setAttribute(key, value, dom){
 export default setAttribute;
 ```
 
-+ 先将`className`转化为`class`
-+ 若绑定的类型为`function`则转化成小写后写入`dom`属性
-+ 若`key`为`style`，则分类讨论，若属性为`string`则写入`cssText`，若为`object`则判断其是否为`number`，若是则自动在后面添加`px`，然后写入`style`
-+ 若为其他则直接调用原生`setAttribute`方法
-+ 若属性值为空则在`dom`上删除该属性
+- 先将`className`转化为`class`
+- 若绑定的类型为`function`则转化成小写后写入`dom`属性
+- 若`key`为`style`，则分类讨论，若属性为`string`则写入`cssText`，若为`object`则判断其是否为`number`，若是则自动在后面添加`px`，然后写入`style`
+- 若为其他则直接调用原生`setAttribute`方法
+- 若属性值为空则在`dom`上删除该属性
 
 ```Javascript
 if(nextElement.props){
@@ -426,6 +426,74 @@ function flushBatchedUpdates(){
 
 遍历`batchingUpdates`数组排头(`shift`自查)，获取其中组件和状态，判断组件的前一个状态，若无之前的状态，则将空对象和当前状态合并设为该组件的初始状态，若前一状态为`function`，则调用该函数并将返回值和之前状态合并，若不为函数则直接合并，然后设置组件的上一状态为其之前的状态，最后遍历`dirtyComponent`更新组件，完成后设置`isbatchingUpdates`为`false`
 
-至此，基本功能完成
+### 事件委托
 
-代码请移步[GitHub仓库](https://github.com/AddOneDn/react-like)
+入口在为元素设置属性的setAttribute中
+
+```javascript
+// 若绑定的类型为function则挂载到事件委托上
+if(typeof value === 'function'){
+    setFuncBus(key, value, dom);
+}
+```
+
+我们看一下setFuncBus这个函数
+
+```javascript
+/**
+ * @msg: 事件代理函数
+ * @param {string} key 属性的key
+ * @param {any} value 属性的值
+ * @param {dom} dom 被设置属性的元素 
+ * @return: null
+ */
+function setFuncBus(key, value, dom) {
+  let funcKey = key.toLowerCase();
+  let nodeName = dom.nodeName;
+  
+  if(document.eventBus[funcKey]) {
+    document.eventBus[funcKey][nodeName] = value || '';
+  } else {
+    document.eventBus[funcKey] = {};
+    document.eventBus[funcKey][nodeName] = value || '';
+    addWindowEventListener(funcKey);
+  }
+}
+```
+
+eventBus是一个普通对象。先将函数名转为小写，然后判断eventBus中是否已经委托了该函数，若没有则初始化后赋值，这里简单的以nodeName作为触发元素的唯一标识，最后将funcKey添加到全局的事件监听中。
+
+```javascript
+/**
+ * @msg: 添加全局事件委托
+ * @param {string} funcKey 委托事件名  
+ * @return: null
+ */
+export function addWindowEventListener(funcKey) {
+  let listenName = funcKey.replace('on', '');
+  funcKey = funcKey.toLowerCase();
+
+  // 根据eventbus避免全局事件重复注册
+  (!document.eventBus[funcKey] || Object.keys(document.eventBus[funcKey]).length < 2 ) ? 
+  window.addEventListener(listenName, function(e){
+    // 获取当前事件所包含的委托元素集合
+    let func = document.eventBus[funcKey][e.target.tagName];
+  
+    // 如果当前元素被委托则执行
+    if(func) {
+      func();
+    } else {
+      // 向上冒泡寻找是否有适合条件的委托函数
+      // e.path为层级数组，索引从低到高为 子---->父
+      e.path.forEach(item => {
+        document.eventBus[funcKey][item.nodeName] ? 
+          document.eventBus[funcKey][item.nodeName]() : '';
+      });
+    }
+  }) : null;
+}
+```
+
+基本的事件委托到这里结束
+
+代码请移步[GitHub仓库
