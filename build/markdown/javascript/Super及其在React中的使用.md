@@ -161,6 +161,10 @@ class Container extends React.Component {
 
 如果你不传props，这种错误其实是很难调试的，所以尽管这不是必要的，还是推荐你传一下，也不会死。
 
-### 结束
+# 结束
 
-说了这么多，我还是不想写super(props)，所以我等着React16.7的Hooks hahahaha
+说了这么多，我还是不想写super(props)
+
+# 后记
+
++ 2018-12-18: [V8 v7.2]('https://v8.js.cn/blog/v8-release-72/')发布...简化了class，确实不用写super了hhh 
