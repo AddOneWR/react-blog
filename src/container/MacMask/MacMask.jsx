@@ -14,7 +14,7 @@ const MacMask = () => (
       <p style={{color: 'red'}}>七牛云图床域名被收回，导致部分文章图片消失，问题处理中</p>
       <Link to='/mac'>
         <div className="mask-btn">
-          开机
+          Enter
         </div>
       </Link>
     </div>

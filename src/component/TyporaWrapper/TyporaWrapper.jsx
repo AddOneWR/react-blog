@@ -67,14 +67,15 @@ class TyporaWrapper extends Component {
     >
       {
         toc && toc.map((item, index) => 
-        <a href={`#${item.title}-`} key={index}>
-          <div 
-            className={`typora-menu-item level${item.level}`}
-          >
-            {item.title}
-          </div>
-        </a>
-      )}
+          <a href={`#${item.title}-`} key={index}>
+            <div 
+              className={`typora-menu-item level${item.level}`}
+            >
+              {item.title}
+            </div>
+          </a>
+        )
+      }
     </div>
   )
 
