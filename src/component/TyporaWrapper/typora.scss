@@ -11,13 +11,13 @@
     
     &-flex {
       display: flex;
-      height: 600px;
+      height: 610px;
       overflow-y: auto;
 
       &-loading {
         height: 100%;
         font-size: 20px;
-        margin: 280px 0 0 20px;
+        margin: 300px auto;
       }
 
       @media screen and (min-height: 1000px) and (max-height: 1400px) {
@@ -40,6 +40,8 @@
   }
 
   &-large {
+    display: flex;
+    flex-direction: column;
     top: 0;
     left: 0;
     width: 100%;
@@ -52,6 +54,7 @@
 
     .typora-main {
       flex: 1;
+
     }
   }
 
@@ -94,11 +97,13 @@
 
   &-main {
     width: 650px;
+    margin-left: 210px;
     padding: 20px 10px 0 10px;
   }
 
   &-menu-container {
-    width: 250px;
+    position: fixed;
+    width: 200px;
     font-size: 14px;
     margin-top: 20px;
     overflow-y: auto;
@@ -120,5 +125,11 @@
         } 
       }
     }
+  }
+
+  &-menu-item {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }

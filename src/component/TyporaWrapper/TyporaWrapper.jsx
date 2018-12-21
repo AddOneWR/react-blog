@@ -26,7 +26,6 @@ class TyporaWrapper extends Component {
     try {
       fetch(`../../markdown/${category}/${name}.md`)
         .then(res => {
-          console.log(res)
           let markdown = res.text()
           return markdown;
         })
@@ -51,6 +50,7 @@ class TyporaWrapper extends Component {
     let reg = /(#+)\s+?(.+?)\n/g;
     let regExecRes = null
     while((regExecRes = reg.exec(markdown))) {
+      console.log(regExecRes)
       toc.push({
         level: regExecRes[1].length,
         title: regExecRes[2]
