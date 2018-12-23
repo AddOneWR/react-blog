@@ -10,7 +10,7 @@ const MacMask = () => (
       <p>南京航空航天大学软件工程专业在读 20届毕业</p>
       <p>前端开发者，Javascript爱好者</p>
       <p>微信：x467072280</p>
-      <p>曾实习: 九章算法，杭州有赞</p>
+      <p>曾实习: 北京览众，杭州有赞</p>
       <p style={{color: 'red'}}>七牛云图床域名被收回，导致部分文章图片消失，问题处理中</p>
       <Link to='/mac'>
         <div className="mask-btn">
