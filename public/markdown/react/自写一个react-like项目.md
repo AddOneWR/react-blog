@@ -449,19 +449,21 @@ if(typeof value === 'function'){
  */
 function setFuncBus(key, value, dom) {
   let funcKey = key.toLowerCase();
-  let nodeName = dom.nodeName;
+  let domKey = dom.key;
   
   if(document.eventBus[funcKey]) {
-    document.eventBus[funcKey][nodeName] = value || '';
+    document.eventBus[funcKey][domKey] = value || '';
   } else {
     document.eventBus[funcKey] = {};
-    document.eventBus[funcKey][nodeName] = value || '';
+    document.eventBus[funcKey][domKey] = value || '';
     addWindowEventListener(funcKey);
   }
 }
 ```
 
-eventBus是一个普通对象。先将函数名转为小写，然后判断eventBus中是否已经委托了该函数，若没有则初始化后赋值，这里简单的以nodeName作为触发元素的唯一标识，最后将funcKey添加到全局的事件监听中。
+> 对于key, 我简单的在在render函数中生成dom时为其赋值了key，其为一个8位随机数(随便啦
+
+eventBus是一个普通对象。先将函数名转为小写，然后判断eventBus中是否已经委托了该函数，若没有则初始化后赋值，这里简单的以key作为触发元素的唯一标识，最后将funcKey添加到全局的事件监听中。
 
 ```javascript
 /**
@@ -476,8 +478,8 @@ export function addWindowEventListener(funcKey) {
   // 根据eventbus避免全局事件重复注册
   (!document.eventBus[funcKey] || Object.keys(document.eventBus[funcKey]).length < 2 ) ? 
   window.addEventListener(listenName, function(e){
-    // 获取当前事件所包含的委托元素集合
-    let func = document.eventBus[funcKey][e.target.tagName];
+    // 判断当前元素是否为被委托事件
+    let func = document.eventBus[funcKey][e.target.key];
   
     // 如果当前元素被委托则执行
     if(func) {
@@ -486,8 +488,8 @@ export function addWindowEventListener(funcKey) {
       // 向上冒泡寻找是否有适合条件的委托函数
       // e.path为层级数组，索引从低到高为 子---->父
       e.path.forEach(item => {
-        document.eventBus[funcKey][item.nodeName] ? 
-          document.eventBus[funcKey][item.nodeName]() : '';
+        document.eventBus[funcKey][item.key] ? 
+          document.eventBus[funcKey][item.key]() : '';
       });
     }
   }) : null;
@@ -496,4 +498,4 @@ export function addWindowEventListener(funcKey) {
 
 基本的事件委托到这里结束
 
-代码请移步[GitHub仓库
+代码请移步[GitHub仓库](https://github.com/AddOneDn/react-like)
