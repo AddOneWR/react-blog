@@ -1,0 +1,26 @@
+.filelist {
+  &-item {
+    display: flex;
+    flex-direction: row;
+    height: 25px;
+    font-size: 12px;
+    padding: 0 10px;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff !important;
+      background-color: #2862d9;
+    }
+
+    &-time {
+      flex: 2;
+      color: #999;
+      text-align: right;
+    }
+
+    &-title {
+      flex: 4;
+    }
+  }
+}

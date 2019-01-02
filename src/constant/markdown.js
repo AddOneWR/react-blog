@@ -75,7 +75,7 @@ const mdList = {
     ]
   },
   "javascript": {
-    "desc": "和Javascript有关的项目都在这里，应该包括且不限于凡是涉及到Js的项目",
+    "desc": "原生Javascript或NodeJs相关",
     "list": [
       {
         "title": "Immutable中的持久化数据结构",

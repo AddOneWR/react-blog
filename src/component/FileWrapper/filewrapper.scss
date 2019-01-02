@@ -5,7 +5,7 @@
     top: 30%;
     transform: translate(-50%, -30%);
     width: 600px;
-    height: 415px;
+    height: 420px;
     opacity: 0;
     visibility: hidden;
     background: #fff;
@@ -20,7 +20,7 @@
   }
 
   &-banner {
-    height: 45px;
+    height: 50px;
     font-size: 14px;
     background: -webkit-linear-gradient(top, #eee, #d7d5d7);
     border-top-right-radius: 5px;
@@ -30,11 +30,6 @@
       height: 20px;
       display: flex;
       align-items: center;
-    }
-
-    &-bottom {
-      text-align: center;
-      color: #333;
     }
   }
 
@@ -53,10 +48,59 @@
     text-align: center;
   }
 
-  &-card-wrapper {
+  &-time {
+    display: inline-block;
+    padding-left: 60px;
+    margin-top: 2px;
+  }
+
+  &-icon-wrapper {
+    padding-right: 10px;
+    overflow: hidden;
+    text-align: center;
+
+    .w-select {
+      background-color: #666;
+      background-image: url('https://s2.ax1x.com/2019/01/01/F5J1Lq.png');
+    }
+
+    .w-noselect {
+      background-image: url('https://s2.ax1x.com/2019/01/01/F5JFsI.png');
+    }
+
+    .l-select {
+      background-color: #666;
+      background-image: url('https://s2.ax1x.com/2019/01/01/F5Jrex.png');
+    }
+
+    .l-noselect {
+      background-image: url('https://s2.ax1x.com/2019/01/01/F5J0yR.png');
+    }
+  }
+
+  &-icon {
+    float: right;
+    width: 16px;
+    height: 16px;
+    padding: 5px;
+    background-position: center;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    border-radius: 2px;
+    margin: 0 2px;
+  }
+
+  &-markdown-wrapper {
     display: flex;
     flex-wrap: wrap;
     height: 370px;
     overflow-y: auto;
+  }
+
+  &-list-wrapper {
+    display: block;
+    background: linear-gradient(#f2f3f4 50%, #fff 50%);
+    background-size: 100% 50px;
+    background-attachment: local;
   }
 }

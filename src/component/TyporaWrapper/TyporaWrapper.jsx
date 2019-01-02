@@ -50,7 +50,6 @@ class TyporaWrapper extends Component {
     let reg = /(#+)\s+?(.+?)\n/g;
     let regExecRes = null
     while((regExecRes = reg.exec(markdown))) {
-      console.log(regExecRes)
       toc.push({
         level: regExecRes[1].length,
         title: regExecRes[2]
