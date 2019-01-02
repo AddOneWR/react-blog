@@ -14,6 +14,9 @@ const MacBottom = (props) => (
       <a href="https://juejin.im/user/5800c5b267f3560058a9f89f" target="_blank" rel="noopener noreferrer nofollow">
         <img src='https://s1.ax1x.com/2018/11/21/F9hZbF.png' className="icon" alt="icon"></img>    
       </a>
+      <a href="https://imgchr.com/1232235472" target="_blank" rel="noopener noreferrer nofollow">
+        <img src='https://s2.ax1x.com/2019/01/02/FImOiR.png' className="icon" alt="icon"></img>    
+      </a>
       <img src='https://s1.ax1x.com/2018/11/21/F9hlgx.png' className="icon" alt="icon" onClick={props.handleSearch}></img>
     </div>
   </div>
