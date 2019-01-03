@@ -75,14 +75,9 @@ class TyporaWrapper extends Component {
     parent.addEventListener('scroll', () => {
       toc.forEach((item, index) => {
         dec = Math.abs(parent.scrollTop - document.getElementById(item.title).offsetTop)
-        if(dec <= 40) this.setState({activeId: index});
+        if(dec <= 40) this.setState({ activeId: index });
       })
     })
-  }
-
-  componentWillUnmount() {
-    let parent = document.getElementById('typora-scroll');
-    parent.removeEventListener('scroll');
   }
 
   renderMenu = (toc) => (
