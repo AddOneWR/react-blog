@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import marked from 'marked';
+
 import hljs from 'highlight.js';
 import cn from 'astro-classname';
 
@@ -13,6 +14,7 @@ class TyporaWrapper extends Component {
       markdown: '',
       category: props.category,
       name: props.name,
+      activeId: -1,
       size: 'normal'
     }
   }
@@ -45,6 +47,14 @@ class TyporaWrapper extends Component {
     }
   }
 
+  scrollView(id) {
+    let el = document.getElementById(id);
+    let parent = document.getElementById('typora-scroll');
+    window.scrollTo ?
+      parent.scrollTo({"behavior": "smooth", "top": el.offsetTop - 40}) :
+      parent.scrollTop = el.offsetTop - 40;
+  }
+
   getToc = (markdown) => {
     let toc = [];
     let reg = /(#+)\s+?(.+?)\n/g;
@@ -55,9 +65,24 @@ class TyporaWrapper extends Component {
         title: regExecRes[2]
       });
     }
+
     this.setState({
       toc: toc
     })
+
+    let parent = document.getElementById('typora-scroll');
+    let dec;
+    parent.addEventListener('scroll', () => {
+      toc.forEach((item, index) => {
+        dec = Math.abs(parent.scrollTop - document.getElementById(item.title).offsetTop)
+        if(dec <= 40) this.setState({activeId: index});
+      })
+    })
+  }
+
+  componentWillUnmount() {
+    let parent = document.getElementById('typora-scroll');
+    parent.removeEventListener('scroll');
   }
 
   renderMenu = (toc) => (
@@ -65,14 +90,19 @@ class TyporaWrapper extends Component {
       className="typora-menu-container"
     >
       {
-        toc && toc.map((item, index) => 
-          <a href={`#${item.title}-`} key={index}>
-            <div 
-              className={`typora-menu-item level${item.level}`}
-            >
+        toc.map((item, index) => 
+          <div
+            id={`#${item.title}`}
+            className={`typora-menu-item level${item.level}`}
+            onClick={() => this.scrollView(item.title)}
+            key={index}
+          >
+            <span className={cn({
+              'head-active': this.state.activeId === index
+            })}>
               {item.title}
-            </div>
-          </a>
+            </span>
+          </div>
         )
       }
     </div>
@@ -88,18 +118,20 @@ class TyporaWrapper extends Component {
     const { markdown, name, toc, size } = this.state;
     const { onClose, classNames } = this.props;
     return (
-      <div className={cn(`typora-container detail-container markdown ${classNames}`, {
-        'typora-normal': size === 'normal',
-        'typora-large': size === 'large'
-      })}>
+      <div 
+        className={cn(`typora-container detail-container markdown ${classNames}`, {
+          'typora-normal': size === 'normal',
+          'typora-large': size === 'large'
+        })}
+      >
         <div className="typora-banner">
           <div className="typora-banner-close contro-btn" onClick={onClose}></div>
           <div className="typora-banner-normal contro-btn" onClick={this.handleSize.bind(this, 'normal')}></div>
           <div className="typora-banner-large contro-btn" onClick={this.handleSize.bind(this, 'large')}></div>
           <div className="typora-banner-title">{name}</div>
         </div>
-        <div className="typora-container-flex">
-        { this.renderMenu(toc) }
+        <div id="typora-scroll" className="typora-container-flex">
+        { toc && this.renderMenu(toc) }
         {
           !markdown ?
           <div className="typora-container-flex-loading">努力加载中(๑•̀ㅂ•́)و✧...</div> :
