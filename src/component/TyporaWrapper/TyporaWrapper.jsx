@@ -103,15 +103,16 @@ class TyporaWrapper extends Component {
     </div>
   )
 
-  handleSize = (size) => {
+  handleSize = () => {
+    let size = this.state.size === 'normal' ? 'large' : 'normal';
     this.setState({
       size: size
     })
   }
 
   render() {
-    const { markdown, name, toc, size } = this.state;
-    const { onClose, classNames } = this.props;
+    const { markdown, name, category, toc, size } = this.state;
+    const { onClose, classNames, saveTempFile } = this.props;
     return (
       <div 
         className={cn(`typora-container detail-container markdown ${classNames}`, {
@@ -120,9 +121,19 @@ class TyporaWrapper extends Component {
         })}
       >
         <div className="typora-banner">
-          <div className="typora-banner-close contro-btn" onClick={onClose}></div>
-          <div className="typora-banner-normal contro-btn" onClick={this.handleSize.bind(this, 'normal')}></div>
-          <div className="typora-banner-large contro-btn" onClick={this.handleSize.bind(this, 'large')}></div>
+          <div className="typora-banner-wrapper">
+            <div className="typora-banner-close contro-btn" onClick={onClose}></div>
+            <div 
+              className="typora-banner-normal contro-btn" 
+              onClick={
+                size === 'large' ? 
+                  void(0) : 
+                  () => saveTempFile(category, name)
+                }
+            >
+            </div>
+            <div className="typora-banner-large contro-btn" onClick={this.handleSize}></div>
+          </div>
           <div className="typora-banner-title">{name}</div>
         </div>
         <div id="typora-scroll" className="typora-container-flex">

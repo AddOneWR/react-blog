@@ -15,7 +15,7 @@ const renderLink = (props) => (
     onClick={props.onFileOpen.bind(null, props.category, props.name)}
   >
     <img 
-      src={props.imgSrc ? props.imgSrc : 'https://s1.ax1x.com/2018/12/11/FY3qDs.png'} 
+      src={props.imgSrc ? props.imgSrc : 'https://s2.ax1x.com/2019/01/03/FoNXX4.png'} 
       className={`file-card-img ${props.class}`} 
       alt="macFile">
     </img>

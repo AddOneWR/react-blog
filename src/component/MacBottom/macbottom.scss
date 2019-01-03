@@ -2,29 +2,20 @@
   &-container {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    left: 50%;
     height: 70px;
-
-    &:hover {
-      .mac-bottom-main {
-        transform: translateY(0);
-      }
-    }
+    transform: translateX(-50%);
   }
 
   &-main {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    width: 600px;
+    display: flex;
+    min-width: 600px;
     height: 50px;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     padding: 10px 20px;
     margin: 0 auto;
-    transform: translateY(100px);
-    transition: all .3s linear;
+    transform: translateY(0);
     overflow: hidden;
 
     &::after {
@@ -44,6 +35,29 @@
       height: 48px;
       cursor: pointer;
       margin: 0 20px;
+    }
+  }
+
+  &-temp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    width: 60px;
+    margin: 0 10px;
+    cursor: pointer;
+    
+    .icon {
+      width: 36px;
+      height: 36px;
+    }
+
+    span {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-align: center;
     }
   }
 }

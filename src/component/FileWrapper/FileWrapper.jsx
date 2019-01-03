@@ -48,6 +48,7 @@ class FileWrapper extends Component {
     const { select } = this.state;
     const { category, onClose, classNames, onFileOpen, isSearch } = this.props;
     let mdList = isSearch ? this.renderSearchList() : markdownList[category];
+    
     return (
       <div className={`filewrapper-container ${classNames}`}>
         <div className="filewrapper-banner">

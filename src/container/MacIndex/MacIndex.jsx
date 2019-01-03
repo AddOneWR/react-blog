@@ -19,12 +19,14 @@ class MacIndex extends Component {
     isMdOpen: false,
     isSearchOpen: false,
     isSearch: false,
+    tempFileList: [],
     curMonthList: [],
     name: ''
   }
 
   componentDidMount() {
-    this.getRecentMd()
+    console.log('%cShow Your Code', 'font-size: 50px; background: #222831; color: #fff;padding: 20px 30px');
+    this.getRecentMd();
   }
 
   getRecentMd = () => {
@@ -50,14 +52,14 @@ class MacIndex extends Component {
   changeCategory = (category) => {
     if(!this.state.isOpen) this.setState({ isOpen: true })
     this.setState({
-      category: category
+      category: category,
+      isSearch: false
     })
   }
   
   handleClose = () => {
     this.setState({
-      isOpen: false,
-      isSearch: false
+      isOpen: false
     })
   }
 
@@ -68,10 +70,16 @@ class MacIndex extends Component {
   }
 
   handleFileOpen = (category, name) => {
+    let temp = this.state.tempFileList;
+    this.state.tempFileList.forEach((item, index) => {
+      if(item.name === name && item.category === category) temp.splice(index, 1);
+    })
+
     this.setState({
       category: category,
       name: name,
       isMdOpen: true,
+      tempFileList: temp
     })
   }
 
@@ -95,6 +103,19 @@ class MacIndex extends Component {
     })
   }
 
+  saveTempFile = (category, name) => {
+    let temp = this.state.tempFileList;
+    temp.push({
+      category,
+      name
+    });
+    
+    this.setState({
+      temp: temp,
+      isMdOpen: false
+    });
+  }
+
   renderRecList = (list) => (
     <div className="rec-container">
     {
@@ -115,7 +136,7 @@ class MacIndex extends Component {
   )
 
   render() {
-    const { category, name, isOpen, isMdOpen, isSearchOpen, searchValue, isSearch, curMonthList } = this.state;
+    const { category, name, isOpen, isMdOpen, isSearchOpen, searchValue, isSearch, curMonthList, tempFileList } = this.state;
     return (
       <div className='mac-container'>
         <MacNav />
@@ -127,6 +148,7 @@ class MacIndex extends Component {
             })}
             category={category}
             name={name}
+            saveTempFile={this.saveTempFile}
             onClose={this.handleMdClose}
           /> : null
         }
@@ -153,7 +175,11 @@ class MacIndex extends Component {
           searchValue={searchValue}
         />
         { this.renderRecList(curMonthList) }
-        <MacBottom handleSearch={this.openSearch}/>
+        <MacBottom 
+          handleSearch={this.openSearch} 
+          tempFileList={tempFileList}
+          onFileOpen={this.handleFileOpen}
+        />
         {
           isSearchOpen ? 
           <MacSearch 

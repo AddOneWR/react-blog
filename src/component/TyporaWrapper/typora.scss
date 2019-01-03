@@ -52,9 +52,26 @@
       height: 100%;
     }
 
+    .typora-menu-container {
+      max-height: 700px;
+    }
+
+    .typora-banner-normal {
+      background: #d0d0d0;
+      border: 1px solid #b5b5b5;
+      cursor: default !important;
+
+      &::after {
+        content: '' !important;
+      }
+    }
+
+    .typora-banner-wrapper:hover {
+      .typora-banner-large::after { content: '-'; }
+    }
+    
     .typora-main {
       flex: 1;
-
     }
   }
 
@@ -66,11 +83,20 @@
     font-size: 14px;
 
     .contro-btn {
+      position: relative;
       width: 10px;
       height: 10px;
       border-radius: 50%;
       margin: 0 3px;
       cursor: pointer;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 10px;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
     }
 
     &-title {
@@ -81,17 +107,27 @@
 
     &-close {
       background: #eb6d5f;
-      border: 1px solid red; 
+      border: 1px solid red;
     }
 
     &-normal {
       background: #f6c250;
-      border: 1px solid #f3b838; 
+      border: 1px solid #f3b838;
     }
     
     &-large {
       background: #65cc57;
-      border: 1px solid #5adf49; 
+      border: 1px solid #5adf49;
+    }
+
+    &-wrapper {
+      display: flex;
+
+      &:hover {
+        .typora-banner-close::after { content: 'x'; }
+        .typora-banner-normal::after { content: '-'; }
+        .typora-banner-large::after { content: '+'; }
+      }
     }
   }
 
@@ -104,6 +140,7 @@
   &-menu-container {
     position: fixed;
     width: 200px;
+    max-height: 580px;
     font-size: 14px;
     margin-top: 20px;
     overflow-y: auto;
