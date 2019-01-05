@@ -141,7 +141,9 @@ class TyporaWrapper extends Component {
         {
           !markdown ?
           <div className="typora-container-flex-loading">努力加载中(๑•̀ㅂ•́)و✧...</div> :
-          <div dangerouslySetInnerHTML={{ __html: marked(markdown) }} className="typora-main"></div>
+          <div className="typora-main">
+            <div dangerouslySetInnerHTML={{ __html: marked(markdown) }}></div>
+          </div>
         }
         </div>
       </div>

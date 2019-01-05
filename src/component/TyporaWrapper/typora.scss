@@ -11,7 +11,7 @@
     
     &-flex {
       display: flex;
-      height: 610px;
+      height: 95%;
       overflow-y: auto;
 
       &-loading {
@@ -33,9 +33,9 @@
 
   &-normal {
     top: 5%;
-    left: 20%;
-    width: 900px;
-    height: 600px;
+    left: 15%;
+    width: 70%;
+    height: 30%;
     border: 1px solid #ddd;
   }
 
@@ -79,7 +79,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    height: 20px;
+    height: 5%;
     font-size: 14px;
 
     .contro-btn {
@@ -132,7 +132,7 @@
   }
 
   &-main {
-    width: 650px;
+    width: calc(100% - 230px);
     margin-left: 210px;
     padding: 20px 10px 0 10px;
   }
