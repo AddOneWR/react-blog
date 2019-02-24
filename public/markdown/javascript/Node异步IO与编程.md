@@ -53,7 +53,47 @@ function asyncReturnData2() {
 
 ### 事件循环
 
-Node的事件循环大体与浏览器端类似，我们可以将它看做一个`While(true)`的循环，每一次循环体的执行我们称作`Tick`，每次Tick过程查看是否有事件等待处理，如果有就取出事件及其相关回调函数执行，然后进行下一次Tick
+Node的Event Loop分为6个阶段
+
+1. timers：执行setTimeout() 和 setInterval()中到期的callback。
+2. I/O callbacks：上一轮循环中有少数的I/Ocallback会被延迟到这一轮的这一阶段执行
+3. idle, prepare：队列的移动，仅内部使用
+4. poll：最为重要的阶段，执行I/O callback，在适当的条件下会阻塞在这个阶段
+5. check：执行setImmediate的callback
+6. close callbacks：执行close事件的callback，例如socket.on("close",func)
+
+在浏览器中，每次一个MacroTask执行完毕后，就会去清空MicroTask队列。但是在Node中，在每个阶段完成后，MicroTask队列就会被执行，这就导致**同样的代码在不同的上下文环境下会出现不同的结果**。
+
+举个例子
+
+```javascript
+setTimeout(()=>{
+    console.log('timer1')
+
+    Promise.resolve().then(function() {
+        console.log('promise1')
+    })
+}, 0)
+
+setTimeout(()=>{
+    console.log('timer2')
+
+    Promise.resolve().then(function() {
+        console.log('promise2')
+    })
+}, 0)
+
+
+
+浏览器输出：			Node输出:
+time1				time1
+promise1			time2
+time2				promise1
+promise2			promise2
+```
+
++ 在浏览器中，setTimeout为MacroTask，所以先取出第一个setTimeout，打印`timer1`并将then回调放入MicroTask，然后去清空MicroTask打印`promise1`，接下来取出第二个setTimeou进行重复操作
++ 在Node中，在timers阶段执行两个setTimeout回调，打印`timer1`和`timer2`，timers阶段结束后清空MicroTask，打印`promise1`和`promise2`
 
 ### 观察者
 
