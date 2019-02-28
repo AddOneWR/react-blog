@@ -74,7 +74,6 @@ class Banner extends Component {
             <div className="banner-bottom" style={{transform: `translateX(-${interpolatingStyle.x}px)`}}>
               <div className="banner-bottom_name">AddOneG</div>
               <div className="banner-bottom_desc">心似双丝网，中有千千结</div>
-              <div className="banner-bottom_desc" style={{color: 'red'}}>七牛云图床域名被收回，导致部分文章图片消失，问题处理中</div>
               <div className="banner-bottom_link">
                 <a href="https://github.com/AddOneDn" target="_blank" rel="noopener noreferrer nofollow" className="item">Github</a>
                 <a href="https://juejin.im/user/5800c5b267f3560058a9f89f" target="_blank"  rel="noopener noreferrer nofollow" className="item">掘金</a>
