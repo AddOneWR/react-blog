@@ -191,6 +191,11 @@ const mdList = {
         "title": "我不知道的Let",
         "desc": "关于const在本文中部分与let相似，具体情况请独立判断",
         "time": "2019-01-06 10:17:10"
+      },
+      {
+        "title": "Node模块机制",
+        "desc": "CommonJS规范为JavaScript制定了一个美好的愿景：希望JavaScript能够在任何地方运行",
+        "time": "2019-03-15 10:21:01"
       }
     ]
   },
