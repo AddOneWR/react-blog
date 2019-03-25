@@ -7,14 +7,9 @@ import mdList from '../../constant/markdown';
 import './list.scss';
 
 class List extends Component {
-
-  state = {
-
-  }
-
   componentDidMount() {
     let searchValue = j2url.getParam(window.location.href, 'search');
-    if(searchValue) {
+    if (searchValue) {
       let searchList = {
         desc: '',
         list: []
@@ -22,7 +17,7 @@ class List extends Component {
 
       Object.keys(mdList).forEach((key) => {
         mdList[key].list.forEach((item) => {
-          if(item.title.toLowerCase().search(searchValue.toLowerCase()) !== -1) {
+          if (item.title.toLowerCase().search(searchValue.toLowerCase()) !== -1) {
             item.category = key;
             searchList.list.push(item);
           }
@@ -42,14 +37,14 @@ class List extends Component {
 
     let category = j2url.getParam(window.location.href, 'category');
 
-    if(!mdList[category]) {
+    if (!mdList[category]) {
       return;
     }
 
     mdList[category].list.sort(
       (b, a) => Date.parse(a.time) - Date.parse(b.time)
     );
-    
+
     this.setState({
       mdList: mdList[category],
       category: category
@@ -61,24 +56,24 @@ class List extends Component {
     return (
       <div className="list-container">
         <div className="list-main">
-          <Motion defaultStyle={{x: 5000}} style={{x: spring(0)}}>
+          <Motion defaultStyle={{ x: 5000 }} style={{ x: spring(0) }}>
             {interpolatingStyle => (
               <div
                 className="list-desc"
-                style={{transform: `translateX(${interpolatingStyle.x}px)`}}
+                style={{ transform: `translateX(${interpolatingStyle.x}px)` }}
               >
-                { mdList && mdList.desc }
+                {mdList && mdList.desc}
               </div>
             )}
           </Motion>
           {
-             mdList && mdList.list.map(item => (
-              <Motion defaultStyle={{x: 0}} style={{x: spring(1)}} key={item.time}>
+            mdList && mdList.list.map(item => (
+              <Motion defaultStyle={{ x: 0 }} style={{ x: spring(1) }} key={item.time}>
                 {interpolatingStyle => (
-                  <Link to={`/detail?category=${category ? category : item.category}&name=${item.title}`} style={{color: '#fff'}}>
-                    <div 
+                  <Link to={`/detail?category=${category ? category : item.category}&name=${item.title}`} style={{ color: '#fff' }}>
+                    <div
                       className="list-item"
-                      style={{opacity: interpolatingStyle.x}}
+                      style={{ opacity: interpolatingStyle.x }}
                     >
                       <div className="list-item_title">{item.title}</div>
                       <div className="list-item_desc">{item.desc}</div>
