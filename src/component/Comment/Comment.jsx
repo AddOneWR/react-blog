@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'astro-classname';
 
 import './comment.scss';
@@ -6,14 +6,6 @@ import './comment.scss';
 function Comment() {
   const [value, setValue] = useState('');
   const [isSubmit, setSubmit] = useState(false);
-
-  handleSubmit = () => {
-    setValue('');
-    setSubmit(true);
-    setTimeout(() => {
-      alert('提交成功，等待后台运营小姐姐审核哦~')
-    }, 820)
-  }
 
   return (
     <div className={cn("comment-container", {
@@ -28,7 +20,6 @@ function Comment() {
       </input>
       <button 
         className="comment-btn"
-        onClick={this.handleSubmit}
       >Comment</button>
     </div>
   )
