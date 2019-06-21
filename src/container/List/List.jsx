@@ -7,8 +7,14 @@ import mdList from '../../constant/markdown';
 import './list.scss';
 
 class List extends Component {
+  state = {
+    mdList: [],
+    category: ''
+  }
+
   componentDidMount() {
     let searchValue = j2url.getParam(window.location.href, 'search');
+    
     if (searchValue) {
       let searchList = {
         desc: '',
@@ -67,7 +73,7 @@ class List extends Component {
             )}
           </Motion>
           {
-            mdList && mdList.list.map(item => (
+            mdList.list && mdList.list.map(item => (
               <Motion defaultStyle={{ x: 0 }} style={{ x: spring(1) }} key={item.time}>
                 {interpolatingStyle => (
                   <Link to={`/detail?category=${category ? category : item.category}&name=${item.title}`} style={{ color: '#fff' }}>
