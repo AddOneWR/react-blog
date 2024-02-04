@@ -7,7 +7,7 @@ import Loading from '../../component/Loading/Loading';
 import Footer from '../../component/Footer/Footer';
 import DetailBg from '../../component/DetailBg/DetailBg';
 
-import './detail.scss';
+import './detail.less';
 
 class Detail extends Component {
   constructor(props) {

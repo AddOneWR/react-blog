@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './filelist.scss';
+import './filelist.less';
 
 const FileList = (props) => (
   <div 

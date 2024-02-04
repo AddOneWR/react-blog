@@ -4,7 +4,7 @@ import cn from 'astro-classname';
 import FileCard from '../FileCard/FileCard';
 import FileList from '../FileList/FileList';
 import markdownList from '../../constant/markdown';
-import './filewrapper.scss';
+import './filewrapper.less';
 
 class FileWrapper extends Component {
   constructor(props) {

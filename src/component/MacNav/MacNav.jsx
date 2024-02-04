@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import cn from 'astro-classname';
 
 import friends from '../../constant/friends';
-import './macnav.scss';
+import './macnav.less';
 
 const MacNav = () => {
   const [isLinkOpen, setLinkStatus] = useState(false);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import cn from 'astro-classname';
 import { Link } from 'react-router-dom';
 
-import './nav.scss';
+import './nav.less';
 
 class Nav extends Component {
   state = {

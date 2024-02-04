@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './bg.scss';
+import './bg.less';
 
 const DetailBg = () => (
   <div className="detail-bg-container" >

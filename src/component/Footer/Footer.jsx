@@ -1,7 +1,7 @@
 import React from 'react';
 import friends from '../../constant/friends';
 
-import './footer.scss';
+import './footer.less';
 
 const Footer = () => (
   <div className="footer-container">
@@ -21,7 +21,7 @@ const Footer = () => (
         ))
       }
     </div>
-    <div className="footer-copyright">© 2017 - 2018 By AddOneG</div>
+    <div className="footer-copyright">© 2017 - 2018 By AddOne</div>
   </div>
 )
 

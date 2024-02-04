@@ -1,4 +1,4 @@
-$input-bg: #5dabeb;
+@input-bg: #5dabeb;
 
 .comment {
 
@@ -32,20 +32,20 @@ $input-bg: #5dabeb;
 
   &-submit {
     width: 0;
-    background: $input-bg;
+    background: @input-bg;
     transition: width .8s ease-out;
 
     input {
-      color: $input-bg;
+      color: @input-bg;
       border: none;
     }
 
     input:-ms-input-placeholder {
-      color: $input-bg;
+      color: @input-bg;
     }
 
     input::-webkit-input-placeholder {
-      color: $input-bg;
+      color: @input-bg;
     }
   }
 
@@ -62,7 +62,7 @@ $input-bg: #5dabeb;
     transition: all .2s ease-in;
 
     &:hover {
-      color: $input-bg;
+      color: @input-bg;
     }
 
     @media screen and (max-width: 768px) {
@@ -72,7 +72,7 @@ $input-bg: #5dabeb;
         margin-left: 0;
 
         &:hover {
-          color: $input-bg;
+          color: @input-bg;
           font-size: 40px;
         }
       }

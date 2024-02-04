@@ -9,7 +9,7 @@ import TyporaWrapper from '../../component/TyporaWrapper/TyporaWrapper';
 import MacSearch from '../../component/MacSearch/MacSearch';
 import categoryList from '../../constant/category';
 import markdown from '../../constant/markdown';
-import './macIndex.scss';
+import './macIndex.less';
 
 class MacIndex extends Component {
 

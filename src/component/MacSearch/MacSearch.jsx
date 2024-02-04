@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './search.scss';
+import './search.less';
 
 const MacSearch = ({ onSearch, onClose }) => {
   const [value, setValue] = useState('');

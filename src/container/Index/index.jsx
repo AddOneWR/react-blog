@@ -2,7 +2,7 @@ import React from 'react';
 import Banner from '../../component/Banner/Banner';
 import Footer from '../../component/Footer/Footer';
 
-import './index.scss';
+import './index.less';
 
 const Index = () => (
   <div className='index-container'>

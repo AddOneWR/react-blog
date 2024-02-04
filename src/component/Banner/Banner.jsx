@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Motion, spring } from 'react-motion';
 import markdown from '../../constant/markdown';
 
-import './banner.scss';
+import './banner.less';
 
 class Banner extends Component {
 
@@ -64,7 +64,7 @@ class Banner extends Component {
           {interpolatingStyle => (
             <div className="banner-top" style={{transform: `translateX(${interpolatingStyle.x}px)`}}>
               <Link to="/about">
-              <img src="https://s1.ax1x.com/2018/12/11/FY32DA.jpg" className="banner-top_avatar" alt="avatar"/>
+              {/* <img src="https://s1.ax1x.com/2018/12/11/FY32DA.jpg" className="banner-top_avatar" alt="avatar"/> */}
               </Link>
             </div>
           )}
@@ -72,8 +72,8 @@ class Banner extends Component {
         <Motion defaultStyle={{x: 5000}} style={{x: spring(0)}}>
           {interpolatingStyle => (
             <div className="banner-bottom" style={{transform: `translateX(-${interpolatingStyle.x}px)`}}>
-              <div className="banner-bottom_name">AddOneG</div>
-              <div className="banner-bottom_desc">心似双丝网，中有千千结</div>
+              <div className="banner-bottom_name">AddOne</div>
+              <div className="banner-bottom_desc">哈哈，我特么来了哦</div>
               <div className="banner-bottom_link">
                 <a href="https://github.com/AddOneDn" target="_blank" rel="noopener noreferrer nofollow" className="item">Github</a>
                 <a href="https://juejin.im/user/5800c5b267f3560058a9f89f" target="_blank"  rel="noopener noreferrer nofollow" className="item">掘金</a>

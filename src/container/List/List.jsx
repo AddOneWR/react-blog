@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import j2url from 'j2url';
 import mdList from '../../constant/markdown';
 
-import './list.scss';
+import './list.less';
 
 class List extends Component {
   state = {

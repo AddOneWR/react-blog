@@ -143,12 +143,14 @@
     font-size: 14px;
     margin-top: 20px;
     overflow-y: auto;
-
-    @for $i from 1 through 5 {
-      .level#{$i} {
-        padding: 5px 0 5px (10px * $i);
+  
+    .loop(@index) when(@index<= 5) {
+      .level@{index} {
+        padding: 5px 0 5px (10px * @index);
       }
+      .loop(@index + 1);
     }
+    .loop(1);
 
     .head-active {
       font-weight: bold;

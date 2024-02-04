@@ -4,8 +4,8 @@ import marked from 'marked';
 import hljs from 'highlight.js';
 import cn from 'astro-classname';
 
-import '../../container/Detail/detail.scss';
-import './typora.scss';
+import '../../container/Detail/detail.less';
+import './typora.less';
 
 class TyporaWrapper extends Component {
   constructor(props) {

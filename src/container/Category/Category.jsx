@@ -3,7 +3,7 @@ import { Motion, spring } from 'react-motion';
 import { Link } from 'react-router-dom';
 import category from '../../constant/category';
 
-import './category.scss';
+import './category.less';
 
 class Category extends Component {
   render() {

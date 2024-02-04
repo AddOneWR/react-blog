@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import cn from 'astro-classname';
 
-import './comment.scss';
+import './comment.less';
 
 function Comment() {
   const [value, setValue] = useState('');

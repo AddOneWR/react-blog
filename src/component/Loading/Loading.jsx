@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './loading.scss';
+import './loading.less';
 
 const Loading = () => (
   <div className="loading-container">

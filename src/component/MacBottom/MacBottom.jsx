@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './macbottom.scss';
+import './macbottom.less';
 
 const MacBottom = (props) => (
   <div className="mac-bottom-container">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './NotFound.scss';
+import './NotFound.less';
 
 const NotFound = () => (
   <div className="nof-container">

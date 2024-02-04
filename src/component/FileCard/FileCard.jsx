@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './filecard.scss';
+import './filecard.less';
 
 const renderNoLink = (props) => (
   <div className='file-card-item' onClick={props.onClick}>
